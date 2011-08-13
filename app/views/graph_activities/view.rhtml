@@ -1,0 +1,8 @@
+<h2><%= l(:graph_activities_name) %></h2>
+
+<p><%= l(:download_svg_viewer) %></p>
+
+<%= tag("embed", :width => 960, :height => 400, :type => "image/svg+xml", :src => url_for(:controller => 'graph_activities', :action => 'graph', :id => @project)) %>
+<%= tag("embed", :width => 960, :height => 400, :type => "image/svg+xml", :src => url_for(:controller => 'graph_activities', :action => 'graph_issue_per_day', :id => @project)) %>
+<%= tag("embed", :width => 960, :height => 400, :type => "image/svg+xml", :src => url_for(:controller => 'graph_activities', :action => 'graph_repos_per_day', :id => @project)) %>
+

@@ -1,0 +1,18 @@
+# English strings go here for Rails i18n
+en:
+  graph_activities_name: "Activity Graph"
+  all_activities: "Activities for Latest 4 Weeks"
+  activities_issue_per_day: "Activities on Issue per Day"
+  activities_repos_per_day: "Activities on Repository per Day"
+  act_issue: "Activity on Issue"
+  act_repos: "Activity on Repository"
+  sun: "Sunday"
+  mon: "Monday"
+  tue: "Tuesday"
+  wed: "Wednesday"
+  thu: "Thursday"
+  fri: "Friday"
+  sat: "Saturday"
+
+  download_svg_viewer: If you cannot see the graph, please install <a href="http://www.adobe.com/svg/viewer/install/" target="#">SVG Viewer</a>.
+
