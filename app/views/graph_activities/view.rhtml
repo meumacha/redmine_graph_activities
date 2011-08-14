@@ -2,7 +2,15 @@
 
 <p><%= l(:download_svg_viewer) %></p>
 
-<%= tag("embed", :width => 960, :height => 400, :type => "image/svg+xml", :src => url_for(:controller => 'graph_activities', :action => 'graph', :id => @project)) %>
-<%= tag("embed", :width => 960, :height => 400, :type => "image/svg+xml", :src => url_for(:controller => 'graph_activities', :action => 'graph_issue_per_day', :id => @project)) %>
-<%= tag("embed", :width => 960, :height => 400, :type => "image/svg+xml", :src => url_for(:controller => 'graph_activities', :action => 'graph_repos_per_day', :id => @project)) %>
+<% form_tag( {:controller => 'graph_activities', :action => 'view', :id => @project }, :method => :get, :id => 'query_form' ) do %>
+<p><label for="user"><%=l(:label_user)%></label>
+<%= select_tag "user_id",
+      content_tag("option", l(:label_all), :value => '') +
+      options_from_collection_for_select(@assignables, "id", :name, params[:user_id].to_i ), :include_blank=>true %>
+<%= submit_tag 'OK', :name => nil %></p>
+<% end %>
 
+
+<%= tag("embed", :width => 960, :height => 400, :type => "image/svg+xml", :src => url_for(:controller => 'graph_activities', :action => 'graph', :id => @project, :user_id => params[:user_id].empty? ? nil : params[:user_id].to_i)) %>
+<%= tag("embed", :width => 960, :height => 400, :type => "image/svg+xml", :src => url_for(:controller => 'graph_activities', :action => 'graph_issue_per_day', :id => @project, :user_id => params[:user_id].empty? ? nil : params[:user_id].to_i)) %>
+<%= tag("embed", :width => 960, :height => 400, :type => "image/svg+xml", :src => url_for(:controller => 'graph_activities', :action => 'graph_repos_per_day', :id => @project, :user_id => params[:user_id].empty? ? nil : params[:user_id].to_i)) %>

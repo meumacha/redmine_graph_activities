@@ -18,6 +18,6 @@ Redmine::Plugin.register :redmine_graph_activities do
   # Add an item in project menu
   menu :project_menu,
        :graph_activities,
-       {:controller=>'graph_activities', :action=>'view'},
+       {:controller=>'graph_activities', :action=>'view', :user_id=>''},
        :caption => :graph_activities_name
 end

@@ -8,15 +8,19 @@ class GraphActivitiesController < ApplicationController
 
   def init
     @project = Project.find(params[:id])
+    @assignables = @project.assignable_users
     @author = (params[:user_id].blank? ? nil : User.active.find(params[:user_id]))
 
     @activity = Redmine::Activity::Fetcher.new(User.current, :project => @project,
-                                                             :with_subprojects => 1)
+                                                             :with_subprojects => 1,
+                                                             :author => @author )
     @activity.scope_select {|t| !params["show_#{t}"].nil?}
     @activity.scope = (@author.nil? ? :default : :all) if @activity.scope.empty?
-    #@activity.scope = :all
 
     @events = @activity.events(Date.today - 28, Date.today + 1)
+
+  rescue ActiveRecord::RecordNotFound
+    render_404
   end
 
   def view
