@@ -8,15 +8,13 @@ On the 'Activity Graph' page,3 graphs are displayed.
 - Hourly activities on 'Repository' per day
 The activities of sub project are included in the graph.
 
-== Plugin Instration
+== Plugin Installation
 - Download redmine_graph_activities
 - Extract it and move into vendor/plugins.
 - Rename the plugin directory name as redmine_graph_activities
 - Or you can also download from Github directly.
-
-  cd ${RAILS_ROOT}
-  git clone git://github.com/meumacha/redmine_graph_activities.git vendor/plugins/redmine_graph_activities
-
+ cd ${RAILS_ROOT}
+ git clone git://github.com/meumacha/redmine_graph_activities.git vendor/plugins/redmine_graph_activities
 - Restart Redmine.
 - Login and enable the plugin (Project > Settings > Modules)
 - Click to 'Activities Graph' menu.
