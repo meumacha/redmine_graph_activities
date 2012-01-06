@@ -1,16 +1,16 @@
 = redmine_graph_activities
-This plugin generates a graph according to members' activities.
+This plugin generates a graph in according with daily members' activities.
 
 == Details
-On the 'Activity Graph' page,3 graphs are displayed.
-- Hourly activities on 'Issue' and 'Repository' for last 4 weeks.
+On the 'Activity Graph' page, 3 graphs are generated:
+- Hourly activities on 'Issue' and 'Repository'
 - Hourly activities on 'Issue' per day
 - Hourly activities on 'Repository' per day
-The activities of sub project are included in the graph.
+Whether to include the activities of sub projects can be configured by plugin settings.
 
 == Plugin Installation
 - Download redmine_graph_activities
-- Extract it and move into vendor/plugins.
+- Extract it and move into vendor/plugins directory.
 - Rename the plugin directory name as redmine_graph_activities
 - Or you can also download from Github directly.
  cd ${RAILS_ROOT}
@@ -20,5 +20,4 @@ The activities of sub project are included in the graph.
 - Click to 'Activities Graph' menu.
 
 == Note
-- I tested this plugin on Redmine 1.2.1 and 1.0.5
-
+-  This plugin was tested on Redmine 1.3.0.

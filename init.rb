@@ -4,7 +4,7 @@ Redmine::Plugin.register :redmine_graph_activities do
   name 'Redmine Graph Activities plugin'
   author '@me_umacha'
   description "The plugin to generate a graph for visualizing members' activities."
-  version '0.0.1'
+  version '0.0.2'
 
   # This plugin works as a project module and can be enabled/disabled at project level
   project_module :graph_activities do
@@ -18,6 +18,10 @@ Redmine::Plugin.register :redmine_graph_activities do
   # Add an item in project menu
   menu :project_menu,
        :graph_activities,
-       {:controller=>'graph_activities', :action=>'view', :user_id=>''},
+       {:controller=>'graph_activities', :action=>'view', :user_id=>'', :from=>'', :to=>''},
        :caption => :graph_activities_name
+
+  # Settings
+  settings :default => {'include_subproject' => '1'},
+           :partial => 'settings/redmine_graph_activities_settings'
 end

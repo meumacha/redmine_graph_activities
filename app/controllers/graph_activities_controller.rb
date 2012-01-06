@@ -9,36 +9,68 @@ class GraphActivitiesController < ApplicationController
   def init
     @project = Project.find(params[:id])
     @assignables = @project.assignable_users
-    @author = (params[:user_id].blank? ? nil : User.active.find(params[:user_id]))
+    retrieve_date_range
+  end
 
+  def retrieve_activities
+    @author = (params[:user_id].blank? ? nil : User.active.find(params[:user_id]))
     @activity = Redmine::Activity::Fetcher.new(User.current, :project => @project,
-                                                             :with_subprojects => 1,
+                                                             :with_subprojects => Setting.plugin_redmine_graph_activities['include_subproject'],
                                                              :author => @author )
     @activity.scope_select {|t| !params["show_#{t}"].nil?}
     @activity.scope = (@author.nil? ? :default : :all) if @activity.scope.empty?
 
-    @events = @activity.events(Date.today - 28, Date.today + 1)
+    @events = @activity.events(@from, @to + 1)
 
   rescue ActiveRecord::RecordNotFound
     render_404
+  end
+
+  def retrieve_date_range
+    @from, @to = nil, nil
+
+    if !params[:from].nil?
+      begin
+        @from = params[:from].to_s.to_date unless params[:from].blank?
+      rescue
+        @from = Date.today - 28
+      end
+    else
+      @from = Date.today - 28
+    end
+
+    if !params[:to].nil?
+      begin
+        @to = params[:to].to_s.to_date unless params[:to].blank?
+      rescue
+        @to = Date.today
+      end
+    else
+      @to = Date.today
+    end
+
+    @from, @to = @to, @from if @from && @to && @from > @to
   end
 
   def view
   end
 
   def graph
+    retrieve_activities
     data = make_graph
     headers["Content-Type"] = "image/svg+xml"
     send_data(data, :type => "image/svg+xml", :disposition => "inline")
   end
 
   def graph_issue_per_day
+    retrieve_activities
     data = make_graph_issue_per_day
     headers["Content-Type"] = "image/svg+xml"
     send_data(data, :type => "image/svg+xml", :disposition => "inline")
   end
 
   def graph_repos_per_day
+    retrieve_activities
     data = make_graph_repos_per_day
     headers["Content-Type"] = "image/svg+xml"
     send_data(data, :type => "image/svg+xml", :disposition => "inline")
@@ -64,8 +96,12 @@ class GraphActivitiesController < ApplicationController
       :stack => :side,
       :scale_integers => true,
       :step_x_labels => 1,
+      :x_title => l(:field_hours),
+      :show_x_title => true,
+      :y_title => l(:count),
+      :show_y_title => true,
       :show_data_values => true,
-      :graph_title => l(:all_activities),
+      :graph_title => l(:all_activities, :start => format_date(@from), :end => format_date(@to)),
       :show_graph_title => true
     })
 
@@ -103,16 +139,19 @@ class GraphActivitiesController < ApplicationController
       :stack => :side,
       :scale_integers => true,
       :step_x_labels => 1,
+      :x_title => l(:field_hours),
+      :show_x_title => true,
+      :y_title => l(:count),
+      :show_y_title => true,
       :show_data_values => false,
       :graph_title => l(:activities_issue_per_day),
       :show_graph_title => true
     })
 
-    day_labels = [l(:sun), l(:mon), l(:tue), l(:wed), l(:thu), l(:fri), l(:sat) ]
     7.times do |i|
       graph.add_data({
         :data => act_issues[i],
-        :title => day_labels[i]
+        :title => day_name(i)
       })
     end
     graph.burn
@@ -140,16 +179,19 @@ class GraphActivitiesController < ApplicationController
       :stack => :side,
       :scale_integers => true,
       :step_x_labels => 1,
+      :x_title => l(:field_hours),
+      :show_x_title => true,
+      :y_title => l(:count),
+      :show_y_title => true,
       :show_data_values => false,
       :graph_title => l(:activities_repos_per_day),
       :show_graph_title => true
     })
 
-    day_labels = [l(:sun), l(:mon), l(:tue), l(:wed), l(:thu), l(:fri), l(:sat) ]
     7.times do |i|
       graph.add_data({
         :data => act_repos[i],
-        :title => day_labels[i]
+        :title => day_name(i)
       })
     end
     graph.burn

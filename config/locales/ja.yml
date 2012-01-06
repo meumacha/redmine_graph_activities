@@ -1,17 +1,13 @@
 # English strings go here for Rails i18n
 ja:
   graph_activities_name: "活動グラフ"
-  all_activities: "最近4週間の活動"
+  all_activities: "%{start}から%{end}の活動"
   activities_issue_per_day: "曜日ごとのチケット更新"
   activities_repos_per_day: "曜日ごとのコミット"
   act_issue: "チケット更新"
   act_repos: "コミット"
-  sun: "日曜日"
-  mon: "月曜日"
-  tue: "火曜日"
-  wed: "水曜日"
-  thu: "木曜日"
-  fri: "金曜日"
-  sat: "土曜日"
+  count: "回数"
 
   download_svg_viewer: グラフが表示されない場合は<a href="http://www.adobe.com/jp/svg/viewer/install/" target="#">SVG Viewer</a>をインストールしてください。 
+
+  include_subproject: サブプロジェクトの活動を含める
