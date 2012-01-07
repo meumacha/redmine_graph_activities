@@ -1,0 +1,15 @@
+# English strings go here for Rails i18n
+de:
+  graph_activities_name: "Aktivitäten Graph"
+  all_activities: "Aktivitäten zwischen %{start} und %{end}"
+  activities_issue_per_day: "Ticket-Aktivitäten je Tag"
+  activities_repos_per_day: "Repository-Aktivitäten je Tag"
+  act_issue: "Ticket-Aktivitäten"
+  act_repos: "Repository-Aktivitäten"
+  count: "Anzahl"
+  description_date_from: ""
+  description_date_to: ""
+
+  download_svg_viewer: Falls sie den Graphen nicht sehen können, installieren sie bitte <a href="http://www.adobe.com/svg/viewer/install/" target="#">SVG Viewer</a>.
+
+  include_subproject: "Aktivitäten von Unterprojekten miteinbeziehen"
