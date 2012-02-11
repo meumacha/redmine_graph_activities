@@ -89,7 +89,7 @@ class GraphActivitiesController < ApplicationController
         act_repos[ e.event_datetime.strftime("%H").to_i ] += 1
       end
     end
-    graph = SVG::Graph::Bar.new ({
+    graph = SVG::Graph::Bar.new({
       :height => 400,
       :width => 960,
       :fields => field,
@@ -132,7 +132,7 @@ class GraphActivitiesController < ApplicationController
         act_issues[d][t] += 1
       end
     end
-    graph = SVG::Graph::Bar.new ({
+    graph = SVG::Graph::Bar.new({
       :height => 400,
       :width => 960,
       :fields => field,
@@ -172,7 +172,7 @@ class GraphActivitiesController < ApplicationController
         act_repos[d][t] += 1
       end
     end
-    graph = SVG::Graph::Bar.new ({
+    graph = SVG::Graph::Bar.new({
       :height => 400,
       :width => 960,
       :fields => field,
