@@ -1,0 +1,13 @@
+# Dutch strings go here for Rails i18n
+nl:
+  graph_activities_name: "Activiteiten grafiek"
+  all_activities: "Activiteiten tussen %{start} en %{end}"
+  activities_issue_per_day: "Activiteiten op issues per dag"
+  activities_repos_per_day: "Activiteiten op repository per dag"
+  act_issue: "Activiteit op issue"
+  act_repos: "Activiteit op repository"
+  count: "Aantal"
+
+  download_svg_viewer: Als je de grafiek niet kan zien, installeer dan <a href="http://www.adobe.com/svg/viewer/install/" target="#">SVG Viewer</a>.
+
+  include_subproject: "Activiteiten van subprojecten ook laten zien"
