@@ -1,7 +1,7 @@
 # Spanish strings go here for Rails i18n
 es:
   graph_activities_name: "Gráfico de Actividades"
-  all_activities: "Actividadces entre %{start} y %{end}"
+  all_activities: "Actividades entre %{start} y %{end}"
   activities_issue_per_day: "Actividades en Petición por Día"	# Don't like "Petición" very much, but is what Redmine uses for "Issue" in spanish
   activities_repos_per_day: "Actividades en Repositorio por Día"
   act_issue: "Actividad en Petición"
