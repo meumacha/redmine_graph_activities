@@ -1,0 +1,13 @@
+# Spanish strings go here for Rails i18n
+es:
+  graph_activities_name: "Gráfico de Actividades"
+  all_activities: "Actividadces entre %{start} y %{end}"
+  activities_issue_per_day: "Actividades en Petición por Día"	# Don't like "Petición" very much, but is what Redmine uses for "Issue" in spanish
+  activities_repos_per_day: "Actividades en Repositorio por Día"
+  act_issue: "Actividad en Petición"
+  act_repos: "Actividad en Repositorio"
+  count: "Número"	# The literal translation should be "Cuenta" but for this purpose "Número" fits better
+
+  download_svg_viewer: Si no puedes ver la gráfica, por favor instala <a href="http://www.adobe.com/svg/viewer/install/" target="#">SVG Viewer</a>.
+
+  include_subproject: "Incluir Actividades de Subproyectos"
