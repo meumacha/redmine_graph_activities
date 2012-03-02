@@ -20,4 +20,4 @@ Whether to include the activities of sub projects can be configured by plugin se
 - Click to 'Activities Graph' menu.
 
 == Note
--  This plugin was tested on Redmine 1.3.0.
+-  This plugin was tested on Redmine 1.3.0 and 1.3.1.
