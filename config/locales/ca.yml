@@ -1,0 +1,14 @@
+# Catalan strings go here for Rails i18n
+# by Josep Mª Mas - Systray Serveis Informàtics
+ca:
+  graph_activities_name: "Gràfic d'Activitat"
+  all_activities: "Activitat entre %{start} i %{end}"
+  activities_issue_per_day: "Activitat per Dia en Assumptes"
+  activities_repos_per_day: "Activitat per Dia en el Dipòsit"
+  act_issue: "Activitat en Assumptes"
+  act_repos: "Activitat en el Dipòsit"
+  count: "Número"
+
+  download_svg_viewer: Si no pot veure la gràfica, si us plau instal·la <a href="http://www.adobe.com/svg/viewer/install/" target="#">SVG Viewer</a>.
+
+  include_subproject: "Incloure activitat de Subprojectes"
