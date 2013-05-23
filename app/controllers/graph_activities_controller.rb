@@ -29,7 +29,7 @@ class GraphActivitiesController < ApplicationController
   def retrieve_date_range
     @from, @to = nil, nil
 
-    if !params[:from].nil?
+    if !params[:from].blank?
       begin
         @from = params[:from].to_s.to_date unless params[:from].blank?
       rescue
@@ -39,7 +39,7 @@ class GraphActivitiesController < ApplicationController
       @from = Date.today - 28
     end
 
-    if !params[:to].nil?
+    if !params[:to].blank?
       begin
         @to = params[:to].to_s.to_date unless params[:to].blank?
       rescue
@@ -53,6 +53,7 @@ class GraphActivitiesController < ApplicationController
   end
 
   def view
+    retrieve_date_range
   end
 
   def graph
