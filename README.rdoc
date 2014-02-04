@@ -10,14 +10,14 @@ Whether to include the activities of sub projects can be configured by plugin se
 
 == Plugin Installation
 - Download redmine_graph_activities
-- Extract it and move into vendor/plugins directory.
+- Extract it and move into ${RAILS_ROOT}/plugins directory.
 - Rename the plugin directory name as redmine_graph_activities
 - Or you can also download from Github directly.
  cd ${RAILS_ROOT}
- git clone git://github.com/meumacha/redmine_graph_activities.git vendor/plugins/redmine_graph_activities
+ git clone git://github.com/meumacha/redmine_graph_activities.git plugins/redmine_graph_activities
 - Restart Redmine.
 - Login and enable the plugin (Project > Settings > Modules)
 - Click to 'Activities Graph' menu.
 
 == Note
--  This plugin was tested on Redmine 1.3.0 and 1.3.1.
+-  This plugin was tested on Redmine 2.3.2.
