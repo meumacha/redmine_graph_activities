@@ -19,7 +19,8 @@ Redmine::Plugin.register :redmine_graph_activities do
   menu :project_menu,
        :graph_activities,
        {:controller=>'graph_activities', :action=>'view', :user_id=>'', :from=>'', :to=>''},
-       :caption => :graph_activities_name
+       :caption => :graph_activities_name,
+       :after => :activity
 
   # Settings
   settings :default => {'include_subproject' => '1'},
