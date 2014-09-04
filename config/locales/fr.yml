@@ -1,0 +1,13 @@
+# French strings go here for Rails i18n
+fr:
+  graph_activities_name: "Graph d'activité"
+  all_activities: "Activité entre %{start} et %{end}"
+  activities_issue_per_day: "Activité sur les demandes par Jour"
+  activities_repos_per_day: "Activité sur les dépôts par Jour"
+  act_issue: "Activité sur les demandes"
+  act_repos: "Activité sur les dépôts"
+  count: "Compter"
+
+  download_svg_viewer: Si vous ne pouvez pas voir le graph, installez <a href="http://www.adobe.com/svg/viewer/install/" target="#">SVG Viewer</a>.
+
+  include_subproject: "Inclure l'activité des sous-projets"
